@@ -74,7 +74,9 @@ public class cartStringsMethod {
                                 System.err.printf("%s is already in your cart!\n", result);
                             }
                             else{ 
+                                System.out.printf("%s has been added to your cart.\n",result);
                                 cart.add(result); //add first item to cart
+                                
                             }
                             // now initialise startIndex to start from endIndex +1
                             startIndex = endIndex+1;
@@ -92,6 +94,7 @@ public class cartStringsMethod {
                             System.err.printf("%s is already in your cart!\n", result);
                         }
                         else{ 
+                            System.out.printf("%s has been added to your cart.\n", result);
                             cart.add(result);
                         }
                     } // end of multiple input check if "," exists in prompt
