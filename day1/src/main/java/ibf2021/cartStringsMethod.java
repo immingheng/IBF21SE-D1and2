@@ -106,6 +106,7 @@ public class cartStringsMethod {
                         }
                         else{ 
                             cart.add(result);
+                            System.out.printf("%s has been added to your cart.\n", result);
                         }
                     }                   
                 } 
@@ -145,6 +146,7 @@ public class cartStringsMethod {
             }
             // to terminate the while (true) loop
             else if (prompt.startsWith("exit")){
+                System.out.println("Goodbye!");
                 break;
             }
             // any other input will return an invalid input 

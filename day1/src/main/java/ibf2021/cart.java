@@ -114,6 +114,7 @@ public class cart {
                 }
             } 
             else if (sc.prompt.startsWith("exit")){
+                System.out.println("Goodbye!");
                 break;
             }
             else{
