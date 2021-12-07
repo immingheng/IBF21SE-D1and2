@@ -6,7 +6,7 @@ public class FixedDepositAccount extends BankAccount {
 
     // Told that default interest and duration = 3 and 6 respectively
     private float interest = (float) 3.0;
-    private int durationInMonths = 6;
+    int durationInMonths = 6;
     private boolean isInterestChanged = false;
     boolean isDurationChanged = false;
     Console cons = System.console();

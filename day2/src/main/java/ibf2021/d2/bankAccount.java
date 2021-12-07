@@ -70,7 +70,6 @@ public class BankAccount {
         this.name = name;
         this.accBalance = accBalance;
         transactions = new ArrayList<>();
-        // TODO with account balance
     }
 
     // Methods to be written:
