@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: ibf2021.d2.testBankAccount
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.041 s <<< FAILURE! - in ibf2021.d2.testBankAccount
+testDeposit(ibf2021.d2.testBankAccount)  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.add(Object)" because "this.transactions" is null
+	at ibf2021.d2.testBankAccount.testDeposit(testBankAccount.java:25)
+

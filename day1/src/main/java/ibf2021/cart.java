@@ -3,7 +3,7 @@ package ibf2021;
 import java.util.*;
 import java.io.*;
 
-public class cart {
+public class Cart {
 
     // Declaring private variables - only accessible within same packages.
     private String prompt = ""; // prompt refers to user input read from console
@@ -92,7 +92,7 @@ public class cart {
 
     public static void main(String[] args) {
         // instantiate an instance of cart 
-        cart sc = new cart();
+        Cart sc = new Cart();
         System.out.println("Welcome to your shopping cart!");
 
         while(true){

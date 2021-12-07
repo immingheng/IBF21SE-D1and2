@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.lang.Integer;
 
 
-public class bankAccount {
+public class BankAccount {
     //Initialisation of the 7 private variables
     private String name;
     private String accNo;
@@ -59,16 +59,17 @@ public class bankAccount {
     // Told that it is not possible to set name and account number as they are read only properties
 
     //Constructor to set name and account number
-    public bankAccount(String name){
+    public BankAccount(String name){
         this.name = name;
         this.accNo = Integer.toString((int) (Math.random()*1000000000));
         this.accBalance = 0;
         transactions = new ArrayList<>();
     }
 
-    public bankAccount(String name, float accBalance){
+    public BankAccount(String name, float accBalance){
         this.name = name;
         this.accBalance = accBalance;
+        transactions = new ArrayList<>();
         // TODO with account balance
     }
 
@@ -82,7 +83,7 @@ public class bankAccount {
         String formattedDateTime = myDateTime.format(formatDateTime);
         String transactionStatement = ("deposit $"+ depositAmt+ "at "+formattedDateTime);
         transactions.add(transactionStatement);
-        System.out.printf("deposit $%d at %t", depositAmt, formattedDateTime);
+        System.out.println("deposit $"+depositAmt+" at "+formattedDateTime);
     
         if (depositAmt<=0){
             System.err.println("You cannot deposit a value less than or equals to 0!");
@@ -106,7 +107,7 @@ public class bankAccount {
             String formattedDateTime = myDateTime.format(formatDateTime);
             String transactionStatement = ("withdraw $"+ withdrawAmt+ "at "+formattedDateTime);
             transactions.add(transactionStatement);
-            System.out.printf("withdraw $%d at %t", withdrawAmt, formattedDateTime);
+            System.out.println("withdraw $"+withdrawAmt+" at "+formattedDateTime);
         } catch (Exception illegalArgumentException) {
             if (withdrawAmt<=0){
                 System.err.println("You cannot withdraw a value less than or equals to 0!");
@@ -121,13 +122,13 @@ public class bankAccount {
 
 
     public static void main(String[] args) {
-        bankAccount ba1 = new bankAccount("Ming", 1000);
+        BankAccount ba1 = new BankAccount("Ming", 1000);
         System.out.println("This is "+ba1.getName()+"'s bank account.");
         System.out.println("You have remaining $"+ba1.getAccBalance()+" in your account.");
         ba1.withdraw(50);
         ba1.deposit(100);
+
         System.out.println("You have $"+ ba1.getAccBalance()+" remaining in your account.");
-        System.out.println(ba1.getTransactions());
     }
 
 }

@@ -2,13 +2,13 @@ package ibf2021.d2;
 
 import java.io.Console;
 
-public class FixedDepositAccount extends bankAccount {
+public class FixedDepositAccount extends BankAccount {
 
     // Told that default interest and duration = 3 and 6 respectively
     private float interest = (float) 3.0;
     private int durationInMonths = 6;
     private boolean isInterestChanged = false;
-    private boolean isDurationChanged = false;
+    boolean isDurationChanged = false;
     Console cons = System.console();
 
     //Constructors
@@ -66,6 +66,7 @@ public class FixedDepositAccount extends bankAccount {
         fd1.setInterest(5);
         fd1.withdraw(100);
         fd1.deposit(50);
+        //fd1.setInterest(10);
         System.out.println("You got "+fd1.getBalance()+" in your fixed deposit account.");
     }
 

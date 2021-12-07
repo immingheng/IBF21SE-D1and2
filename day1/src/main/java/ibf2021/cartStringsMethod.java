@@ -10,7 +10,7 @@ package ibf2021;
 import java.util.*;
 import java.io.*;
 
-public class cartStringsMethod {
+public class CartStringsMethod {
     
     public static void main(String[] args) {
        // list is an interface while arraylist is a class.
