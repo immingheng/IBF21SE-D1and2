@@ -3,15 +3,22 @@ package ibf2021.d4;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+//import ibf2021.d4.Cookie;
 
-public class FortuneCookieServer {
+public class Server {
     /*
     Write a fortune cookie server that serves random cookie.
     Server is started in cmd via:
     java -cp fortunecookie.jar fc.Server 12345 cookie_file.txt
     Port 12345 (TCP) and cookie_file.txt contains a list of cookies
+    arg[0] = portNo.
+    arg[1] = cookie_file.txt file;
     */
     public static void main(String[] args) throws IOException {
+        //int portNo = Integer.parseInt(args[0]);
+        //String cookietxt = args[1];
+        //ServerSocket serverSocket = new ServerSocket(portNo);
+        
         // Open a server socket with local IP and port 12345
         ServerSocket serverSocket = new ServerSocket(12345);
         // perform whatever after only when connection is made...
@@ -51,9 +58,10 @@ public class FortuneCookieServer {
         }      // end of try
  
         //closing the socket and serverSocket when client keys in close
+        catch(EOFException e){
         socket.close();
         serverSocket.close();
-
+        }
     } // end of main
 
 } // end of class

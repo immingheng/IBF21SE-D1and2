@@ -20,11 +20,16 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class FortuneCookieClient {
+public class Client {
     
     public static void main(String[] args) throws UnknownHostException, IOException {
         // Creates a socket based on localhost IP address and port 12345
-        Socket socket = new Socket("localhost", 12345);
+        String argu = args[0];
+        String[] agmt;
+        agmt = (argu.split(":"));
+        //int portNo = Integer.parseInt(args[1]);
+        //Socket socket = new Socket("localhost", 12345);
+        Socket socket = new Socket(agmt[0], Integer.parseInt(agmt[1]));
 
         try (OutputStream os = socket.getOutputStream(); InputStream is = socket.getInputStream()) {
             BufferedOutputStream bos = new BufferedOutputStream(os);
@@ -43,15 +48,11 @@ public class FortuneCookieClient {
                 // Now await for server to reply by reading its UTF
                 System.out.println(dis.readUTF());
                 msg = br.readLine();
-            }
+            }         
 
-
-                
-            
-        
-
-        socket.close();
-
+        }
+        catch (EOFException e){
+            socket.close();
         }
         
 
