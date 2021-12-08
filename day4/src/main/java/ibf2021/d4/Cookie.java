@@ -22,15 +22,10 @@ public class Cookie {
                 Cookies.add(line);
             }
             // Upon reading the entire cookiefile, array Cookies now consist of all the possible cookies that exists
-            // Random index generator
+            // Random index generator - floor because size is always 1 greater than valid index!
             int index = (int) Math.floor(Math.random()*Cookies.size());
             return Cookies.get(index);
         }
     }
-
-    public void close(){
-
-    }
-
     
 }

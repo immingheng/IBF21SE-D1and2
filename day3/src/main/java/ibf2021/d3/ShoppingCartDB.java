@@ -10,8 +10,9 @@ public class ShoppingCartDB extends Cart{
     boolean isLoggedIn = false;
     public String username;
 
-    // create default database directory 
-    String path = "day3/src/main/java/ibf2021/d3/db"; 
+    // create default database directory
+    String defaultPath = "day3/src/main/java/ibf2021/d3/db" ;
+    String path = defaultPath; 
     File file = new File(path); 
     boolean makeDB = file.mkdir();
     List<String> fromFile = new ArrayList<>();
@@ -37,18 +38,19 @@ public class ShoppingCartDB extends Cart{
             boolean makeDB = file.mkdir();
             if(makeDB == true){
                 System.out.println("Folder has been created successfully!");
-        
             }
             else{
                 //check if file already exists
                 if (file.exists()){
                     System.out.println("The folder already exists in the path prescribed.");
                     System.out.println("The default folder db will be used!");
+                    path = defaultPath;
             
                 }
                 else{
                     System.err.println("Error is found!");
                     System.out.println("The default folder db will be used!");
+                    path = defaultPath;
             
                 }
             }
@@ -59,7 +61,7 @@ public class ShoppingCartDB extends Cart{
         else {
             System.err.println("You have entered an invalid input!");
             System.out.println("The default folder db will be used!");
-    
+            path = defaultPath;
         }
         
     }
@@ -96,7 +98,8 @@ public class ShoppingCartDB extends Cart{
         else { // for new user(s), create new .db file
         //System.out.printf("Welcome new user: %s!\n",LoginID);
         // if user does not exists, create new .db file for the LoginID   
-        //OutputStream os = new FileOutputStream(dbFile);
+        OutputStream os = new FileOutputStream(dbFile);
+        os.close();
         }
         
     }
@@ -111,10 +114,12 @@ public class ShoppingCartDB extends Cart{
         File f = new File(fileName);
         // delete old version of the .db file and create new one with existing items in cart.
         f.delete();
+        System.out.println("Your cart has been saved!");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,true))) {
             for (String item : cartItem){
                 writer.write(item);
                 writer.newLine();
+
             }
         }
 
