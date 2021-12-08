@@ -1,7 +1,6 @@
 package ibf2021.d3;
 
 import java.io.*;
-import java.nio.file.*;
 import java.util.*;
 
 public class ShoppingCartDB extends Cart{
@@ -38,26 +37,31 @@ public class ShoppingCartDB extends Cart{
             boolean makeDB = file.mkdir();
             if(makeDB == true){
                 System.out.println("Folder has been created successfully!");
+        
             }
             else{
                 //check if file already exists
                 if (file.exists()){
                     System.out.println("The folder already exists in the path prescribed.");
                     System.out.println("The default folder db will be used!");
+            
                 }
                 else{
                     System.err.println("Error is found!");
                     System.out.println("The default folder db will be used!");
+            
                 }
             }
         } else if (reply.toLowerCase().equals("n")) {
             System.out.println("The default folder db will be used.");
+    
         }
         else {
             System.err.println("You have entered an invalid input!");
             System.out.println("The default folder db will be used!");
+    
         }
-        //sc.close();
+        
     }
 
     public void Login() throws IOException{
