@@ -11,9 +11,9 @@ Example includes opening and closing cookie file and randomly return a cookie te
 
 public class Cookie {
 
-    static String line;
-    static List<String> Cookies = new ArrayList<>();
-    static String msg;
+    public static String line;
+    public static List<String> Cookies = new ArrayList<>();
+    public String msg;
 
     public static String getCookie() throws FileNotFoundException, IOException{
         try (Reader reader = new FileReader("C:\\Users\\immin\\Desktop\\TFIP-IBF\\Software-Engineering-Fundamentals\\Codes\\GITHUB\\Workshops\\IBFSE21\\day4\\src\\main\\java\\ibf2021\\d4\\cookie_file.txt")) {
