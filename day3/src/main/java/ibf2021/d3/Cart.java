@@ -33,6 +33,9 @@ public class Cart {
         commands.add(1, "add");
         commands.add(2, "remove");
         commands.add(3, "exit");
+        commands.add(4, "login");
+        commands.add(5, "save");
+        commands.add(6, "users");
         for (int j = 0; j< commands.size(); j++){
             System.out.printf("%d. %s\n",j+1, commands.get(j));
         }

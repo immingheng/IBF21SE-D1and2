@@ -57,7 +57,7 @@ public class ShoppingCartDB extends Cart{
             System.err.println("You have entered an invalid input!");
             System.out.println("The default folder db will be used!");
         }
-        sc.close();
+        //sc.close();
     }
 
     public void Login() throws IOException{
@@ -124,12 +124,34 @@ public class ShoppingCartDB extends Cart{
     // Listing all filenames under directory
     public void ListUsers(){
         
-        //path is a string
+        //path is a string and create a file instance
         File folder = new File(path);
-        File[] fileArray = folder.listFiles();
-         for (File f: fileArray){
-             System.out.println(f.getName());
-         }
+        // listfiles creates an array of files which can be used for loop
+        File[] fileArray = folder.listFiles(); 
+         /* for (File f: fileArray){
+            // obtain file name as string and using String methods to search for .db extensions 
+            String fullFileName = f.getName();
+            List<String> u = new ArrayList<>();
+            int endIndex = fullFileName.lastIndexOf(".db");
+            int startIndex = 0;
+            u.add(fullFileName.substring(startIndex, endIndex));
+            System.out.println(u.toString());  
+            //System.out.println(f.getName());
+        } */
+        if (fileArray.length==0){
+            System.out.println("There are no existing users in your database folder!");
+        }
+        for (int i = 0; i<fileArray.length; i++) {
+            String fileName = fileArray[i].toString();
+            int endIndex = fileName.lastIndexOf(".db");
+            if (endIndex==-1){
+                continue;
+            }
+            int startIndex = fileName.indexOf("\\db\\")+4;
+            String userFiles = fileName.substring(startIndex, endIndex);
+            System.out.println(i+1+". "+userFiles);
+        }
+        
 
         
 
@@ -138,7 +160,7 @@ public class ShoppingCartDB extends Cart{
     public static void main(String[] args) {
         ShoppingCartDB scdb = new ShoppingCartDB();
         System.out.println("Welcome to your shopping cart!");
-
+        scdb.FileDirectory();
         while(true){
             scdb.promptInput();
             if (scdb.prompt.startsWith("list")){
