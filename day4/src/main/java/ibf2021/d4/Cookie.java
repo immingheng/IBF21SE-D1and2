@@ -16,7 +16,8 @@ public class Cookie {
     public String msg;
 
     public static String getCookie() throws FileNotFoundException, IOException{
-        try (Reader reader = new FileReader("C:\\Users\\immin\\Desktop\\TFIP-IBF\\Software-Engineering-Fundamentals\\Codes\\GITHUB\\Workshops\\IBFSE21\\day4\\src\\main\\java\\ibf2021\\d4\\cookie_file.txt")) {
+        String cookietxt = "C:\\Users\\immin\\Desktop\\TFIP-IBF\\Software-Engineering-Fundamentals\\Codes\\GITHUB\\Workshops\\IBFSE21\\day4\\src\\main\\java\\ibf2021\\d4\\cookie_file.txt";
+        try (Reader reader = new FileReader(cookietxt)) {
             BufferedReader br = new BufferedReader(reader);
             while (null!= (line = br.readLine())){
                 Cookies.add(line);

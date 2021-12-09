@@ -1,5 +1,0 @@
-Session cookies
-Permanent cookies
-Third-party cookies
-Flash cookies
-Zombie cookies

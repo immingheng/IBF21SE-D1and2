@@ -15,12 +15,12 @@ public class Server {
     arg[1] = cookie_file.txt file;
     */
     public static void main(String[] args) throws IOException {
-        //int portNo = Integer.parseInt(args[0]);
-        //String cookietxt = args[1];
-        //ServerSocket serverSocket = new ServerSocket(portNo);
+        int portNo = Integer.parseInt(args[0]);
+        String cookietxt = args[1];
+        ServerSocket serverSocket = new ServerSocket(portNo);
         
         // Open a server socket with local IP and port 12345
-        ServerSocket serverSocket = new ServerSocket(12345);
+        //ServerSocket serverSocket = new ServerSocket(12345);
         // perform whatever after only when connection is made...
         Socket socket = serverSocket.accept();
         //When connection is established, read what the client says:

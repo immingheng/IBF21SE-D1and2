@@ -11,6 +11,7 @@ public class CookieTest {
 
     @Test
     public void testCookie() throws FileNotFoundException, IOException{
+        //String cookietxt = "src/main/java/ibf2021/d4/cookie_file.txt";
         assertTrue("Test if Cookie array has the random cookie generated",Cookie.Cookies.contains(Cookie.getCookie())==true);
     }
     

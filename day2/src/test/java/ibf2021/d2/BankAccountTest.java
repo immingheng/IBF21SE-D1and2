@@ -2,6 +2,7 @@ package ibf2021.d2;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class BankAccountTest {
 
@@ -25,6 +26,8 @@ public class BankAccountTest {
             b1.deposit(50);
             assertTrue(b1.getAccBalance()==150);
         }
+
+         
 
     
 }
