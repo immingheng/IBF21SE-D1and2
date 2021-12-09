@@ -1,29 +1,45 @@
-package ibf2021.d4;
+package ibf2021.day6;
 
-import java.io.*;
-import java.net.ServerSocket;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.Socket;
-//import ibf2021.d4.Cookie;
 
-public class Server {
-    /*
-    Write a fortune cookie server that serves random cookie.
-    Server is started in cmd via:
-    java -cp fortunecookie.jar fc.Server 12345 cookie_file.txt
-    Port 12345 (TCP) and cookie_file.txt contains a list of cookies
-    arg[0] = portNo.
-    arg[1] = cookie_file.txt file;
-    */
-    public static void main(String[] args) throws IOException {
-        int portNo = Integer.parseInt(args[0]);
-        //String cookietxt = args[1];
-        ServerSocket serverSocket = new ServerSocket(portNo);
-        
-        // Open a server socket with local IP and port 12345
-        //ServerSocket serverSocket = new ServerSocket(12345);
-        // perform whatever after only when connection is made...
-        Socket socket = serverSocket.accept();
-        //When connection is established, read what the client says:
+/*
+Refactoring workshop 4 to use thread. Each client connection should be handled 
+by a thread. 
+Write a class called CookieClientHandler that implements the 
+Runnable interface. All interactions with a client should be perform in this 
+class.
+*/
+
+public class CookieClientHandler implements Runnable{
+
+/* Client connects to server via localhost and portNumber and it either:
+request for cookie via get-cookie or close the connection.
+Now each client will connect to the server via threading...
+*/
+
+private final Socket socket;
+
+
+//Constructor
+public CookieClientHandler(Socket socket) throws IOException {
+    this.socket = socket;
+}
+
+
+
+
+
+@Override
+    public void run(){    
+        //Cookie c1 = new Cookie();
         try (InputStream is = socket.getInputStream(); OutputStream os = socket.getOutputStream()) {
             BufferedOutputStream bos = new BufferedOutputStream(os);
             DataOutputStream dos = new DataOutputStream(bos);
@@ -54,14 +70,23 @@ public class Server {
                     dos.flush();
                 } // end of else
                 line = dis.readUTF();
-            } // end of while loop
-        }      // end of try
- 
-        //closing the socket and serverSocket when client keys in close
-        catch(EOFException e){
+            }
+        
+    } catch (EOFException e) {
+       try {
         socket.close();
-        serverSocket.close();
-        }
-    } // end of main
+    } catch (IOException e1) {
+        e1.printStackTrace();
+    }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    
+    
+} //end of @Override
 
-} // end of class
+public static void main(String[] args) {
+    
+}
+
+}
