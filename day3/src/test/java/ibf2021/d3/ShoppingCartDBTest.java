@@ -5,11 +5,6 @@ import org.junit.Test;
 public class ShoppingCartDBTest {
     
     @Test
-    public void testFileDirectory(){
-        //TODO
-    }
-
-    @Test
     public void testLogin(){
         //TODO
     }

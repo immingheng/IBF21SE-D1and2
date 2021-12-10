@@ -6,9 +6,9 @@ import java.io.*;
 public class Cart {
 
     // Declaring private variables - only accessible within same packages.
-    private String prompt = ""; // prompt refers to user input read from console
-    private List<String> cartItem = new ArrayList<String>();    //create an array list for the cart
-    private String[] promptList = new String[0]; // promptList is an array of strings filled by splitting delimiter ","
+    String prompt = ""; // prompt refers to user input read from console
+    List<String> cartItem = new ArrayList<String>();    //create an array list for the cart
+    String[] promptList = new String[0]; // promptList is an array of strings filled by splitting delimiter ","
     Console con = System.console(); // console instantiation
 
     // prompt user what they want to do, if they entered nothing
